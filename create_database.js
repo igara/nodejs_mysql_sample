@@ -11,9 +11,9 @@ con.connect((err) => {
 	console.log('Connected!')
 	const sql = `
 CREATE DATABASE sample CHARACTER SET utf8
-	`;
+	`
 	con.query(sql, (err, result) => {
-		if (err) throw err;
-		console.log('Database created');
-	});
-});
+		if (err) throw err
+		console.log('Database created')
+	})
+})

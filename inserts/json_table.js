@@ -15,7 +15,7 @@ INSERT INTO json_table (
 	json,
 	name
 ) VALUES ?
-	`;
+	`
 	const params = {
 		json: {
 			fields: [
@@ -29,7 +29,7 @@ INSERT INTO json_table (
 		[JSON.stringify(params.json), params.name]
 	]]
 	con.query(sql, inserts, (err, result) => {
-		if (err) throw err;
-		console.log('Insert created');
-	});
-});
+		if (err) throw err
+		console.log('Insert created')
+	})
+})

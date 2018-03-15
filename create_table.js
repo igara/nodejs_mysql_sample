@@ -18,9 +18,9 @@ CREATE TABLE json_table
 	name VARCHAR(255) DEFAULT NULL,
 	PRIMARY KEY (id)
 )
-	`;
+	`
 	con.query(sql, (err, result) => {
-		if (err) throw err;
-		console.log('Table created');
-	});
-});
+		if (err) throw err
+		console.log('Table created')
+	})
+})

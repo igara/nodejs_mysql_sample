@@ -18,17 +18,17 @@ con.connect((err) => {
 		},
 		name: 'sample'
 	}
-	const query = 'UPDATE mypage_level SET ? where id = ?';
+	const query = 'UPDATE mypage_level SET ? where id = ?'
 
 	const sql = `
 UPDATE json_table SET ? WHERE id = ?
-	`;
+	`
 	const updates = {
 		json: JSON.stringify(params.json),
 		name: params.name
 	}
 	con.query(sql, [updates, 1], (err, result) => {
-		if (err) throw err;
-		console.log('Update created');
-	});
-});
+		if (err) throw err
+		console.log('Update created')
+	})
+})
