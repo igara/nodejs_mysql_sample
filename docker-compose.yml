@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  nodejs:
+    image: node:9.8.0-alpine
+    links: [mysql]
+    networks:
+      - backend
+    volumes:
+      - ./:/sample:cached
+
+  mysql:
+    image: mysql:5.7.21
+    ports:
+      - 127.0.0.1:53306:3306
+    hostname: localhost
+    environment:
+      MYSQL_USER: root
+      MYSQL_DATABASE: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: "bridge"
+
+volumes:
+  db-data:
+    driver: local
