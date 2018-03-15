@@ -18,7 +18,6 @@ con.connect((err) => {
 		},
 		name: 'sample'
 	}
-	const query = 'UPDATE mypage_level SET ? where id = ?'
 
 	const sql = `
 UPDATE json_table SET ? WHERE id = ?
