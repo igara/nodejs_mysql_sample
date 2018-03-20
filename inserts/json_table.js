@@ -10,12 +10,7 @@ const con = mysql.createConnection({
 con.connect((err) => {
 	if (err) throw err
 	console.log('Connected!')
-	const sql = `
-INSERT INTO json_table (
-	json,
-	name
-) VALUES ?
-	`
+
 	const params = {
 		json: {
 			fields: [
@@ -24,10 +19,22 @@ INSERT INTO json_table (
 		},
 		name: 'sample'
 	}
-
-	const inserts = [[
-		[JSON.stringify(params.json), params.name]
-	]]
+	const sql = `
+INSERT INTO json_table SET ?
+	`
+	const inserts = {
+		json: JSON.stringify(params.json),
+		name: params.name
+	}
+// 	const sql = `
+// INSERT INTO json_table (
+// 	json,
+// 	name
+// ) VALUES ?
+// 		`
+// 	const inserts = [[
+// 		[JSON.stringify(params.json), params.name]
+// 	]]
 	con.query(sql, inserts, (err, result) => {
 		if (err) throw err
 		console.log('Insert created')
